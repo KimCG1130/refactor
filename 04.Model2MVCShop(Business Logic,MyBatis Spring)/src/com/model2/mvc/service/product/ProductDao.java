@@ -14,7 +14,7 @@ public interface ProductDao {
 
 	public Product getProduct(int prodNo) throws Exception;//VO에서 상품번호
 
-	public List<Product> getUserList(Search search) throws Exception ;
+	public List<Product> getProductList(Search search) throws Exception ;
 	
 	public void updateProduct(Product product) throws Exception;
 	

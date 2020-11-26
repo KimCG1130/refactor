@@ -34,7 +34,7 @@ public class UserServiceTest {
 	private UserService userService;
 
 	//@Test
-	public void testAddUser() throws Exception {
+	public void testAddUser() throws Exception {//유저가입 테스트
 		
 		User user = new User();
 		user.setUserId("testUserId");
@@ -52,7 +52,7 @@ public class UserServiceTest {
 		//==> console 확인
 		//System.out.println(user);
 		
-		//==> API 확인
+		//==> API 확인 단정 메서드로 테스트 케이스의 수행 결과를 판별합니다
 		Assert.assertEquals("testUserId", user.getUserId());
 		Assert.assertEquals("testUserName", user.getUserName());
 		Assert.assertEquals("testPasswd", user.getPassword());
@@ -62,7 +62,7 @@ public class UserServiceTest {
 	}
 	
 	//@Test
-	public void testGetUser() throws Exception {
+	public void testGetUser() throws Exception {//유저정보확인 테스트
 		
 		User user = new User();
 		//==> 필요하다면...
@@ -92,7 +92,7 @@ public class UserServiceTest {
 	}
 	
 	//@Test
-	 public void testUpdateUser() throws Exception{
+	 public void testUpdateUser() throws Exception{//유저정보업데이트 테스트
 		 
 		User user = userService.getUser("testUserId");
 		Assert.assertNotNull(user);
@@ -123,7 +123,7 @@ public class UserServiceTest {
 	 }
 	 
 	//@Test
-	public void testCheckDuplication() throws Exception{
+	public void testCheckDuplication() throws Exception{//유저중복확인 테스트
 
 		//==> 필요하다면...
 //		User user = new User();
@@ -184,7 +184,7 @@ public class UserServiceTest {
 	 }
 	 
 	 //@Test
-	 public void testGetUserListByUserId() throws Exception{
+	 public void testGetUserListByUserId() throws Exception{//유저Id기반 리스트 테스트
 		 
 	 	Search search = new Search();
 	 	search.setCurrentPage(1);
