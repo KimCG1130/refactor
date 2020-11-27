@@ -19,7 +19,7 @@
 		<result property="regDate" 		column="reg_date" 			jdbcType="DATE" />
 	</resultMap>
 	
-	<!-- SQL : INSERT -->
+	<!-- SQL : INSERT 추가 -->
 	<insert 	id="addUser"		parameterType="user" >
 	 	INSERT
 		INTO users( user_id , user_name , password , role , ssn, cell_phone, addr, email , reg_date) 
@@ -35,7 +35,7 @@
 		WHERE user_id = #{value}
 	 </select>
 	 
-	 <!-- SQL : UPDATE -->
+	 <!-- SQL : UPDATE 정보수정-->
 	 <update	id="updateUser"	parameterType="user" >
 	   	UPDATE users
 	   	<set>
@@ -47,7 +47,7 @@
 	   	WHERE user_id = #{userId}
 	 </update>
 		 
-	<!-- SQL : SELECT LIST -->
+	<!-- SQL : SELECT LIST 유저정보-->
 	<select  id="getUserList"  parameterType="search"	resultMap="userSelectMap">
 	  	SELECT *
 	  	FROM (	SELECT inner_table.* , ROWNUM AS row_seq
@@ -78,7 +78,7 @@
 				WHERE ROWNUM <![CDATA[ <=]]> #{endRowNum} )
 		-->
 	
-	<!-- SQL : SELECT ROW Count -->	 
+	<!-- SQL : SELECT ROW Count 페이지-->	 
 	 <select  id="getTotalCount"  parameterType="search"	 resultType="int">
 	  	SELECT COUNT(*)
 	  	FROM(	SELECT user_id , user_name , email

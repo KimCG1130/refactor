@@ -5,4 +5,11 @@
 		url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="hr" password="hr"
 		maxActiver="20" maxIdle="10" maxWait="-1">
 	</Resource>
+	
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <property name="dataSource" ref="dataSource"></property>
+</bean>
+	
 </Context>
+

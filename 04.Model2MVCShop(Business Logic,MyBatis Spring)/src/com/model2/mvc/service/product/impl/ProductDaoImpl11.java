@@ -14,7 +14,7 @@ import com.model2.mvc.service.product.ProductDao;
 
 //==> 회원관리 DAO CRUD 구현
 @Repository("productDaoImpl")
-public class ProductDaoImpl implements ProductDao{
+public class ProductDaoImpl11 implements ProductDao{
 	
 	///Field
 	@Autowired
@@ -25,7 +25,7 @@ public class ProductDaoImpl implements ProductDao{
 	}
 	
 	///Constructor
-	public ProductDaoImpl() {
+	public ProductDaoImpl11() {
 		System.out.println(this.getClass());
 	}
 

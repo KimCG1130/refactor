@@ -23,6 +23,7 @@ import com.model2.mvc.service.user.UserService;
  * ㅇ @RunWith : Meta-data 를 통한 wiring(생성,DI) 할 객체 구현체 지정
  * ㅇ @ContextConfiguration : Meta-data location 지정
  * ㅇ @Test : 테스트 실행 소스 지정
+ * junit테스트용
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:config/commonservice.xml" })
@@ -218,7 +219,7 @@ public class UserServiceTest {
 	 	System.out.println(totalCount);
 	 }
 	 
-	 @Test
+	 //@Test
 	 public void testGetUserListByUserName() throws Exception{
 		 
 	 	Search search = new Search();
