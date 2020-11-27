@@ -8,7 +8,7 @@ public class Product {
 	
 	private int prodNo;
 	private String prodName;
-	private String prodDetail;//설명인듯함
+	private String prodDetail;//설명
 	private int price;
 	private String manuDate;//manufacturing제조 날짜
 	private String fileName;
