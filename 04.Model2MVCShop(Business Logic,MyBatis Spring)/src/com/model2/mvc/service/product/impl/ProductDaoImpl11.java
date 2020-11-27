@@ -1,3 +1,4 @@
+//mybatis+DAO형식으로
 package com.model2.mvc.service.product.impl;
 
 import java.util.List;
@@ -13,12 +14,12 @@ import com.model2.mvc.service.product.ProductDao;
 
 
 //==> 회원관리 DAO CRUD 구현
-@Repository("productDaoImpl")
+//@Repository("productDaoImpl")
 public class ProductDaoImpl11 implements ProductDao{
 	
 	///Field
-	@Autowired
-	@Qualifier("sqlSessionTemplate")
+	//@Autowired
+	//@Qualifier("sqlSessionTemplate")
 	private SqlSession sqlSession;
 	public void setSqlSession(SqlSession sqlSession) {
 		this.sqlSession = sqlSession;

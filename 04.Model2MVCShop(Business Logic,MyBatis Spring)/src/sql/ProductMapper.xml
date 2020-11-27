@@ -17,7 +17,7 @@
 		<result property="regDate" 		column="reg_date" 			jdbcType="DATE" />
 	</resultMap>
 	
-	<!-- SQL : INSERT #과 $의 차이점:
+	<!-- SQL : INSERT /#과 $의 차이점:
 		#:Parameter가 String형태로 들어와 자동적으로 Parameter형태가 됨
 		$:Parameter가 바로 출력, 해당컬럼의 자료형에 맞추어 파라미터의 자료형 변경-->
 	<insert 	id="addProduct"		parameterType="product" >
@@ -39,10 +39,10 @@
 	 <update	id="updateProduct"	parameterType="product" >
 	   	UPDATE product
 	   	<set>
-	   		product_name 	= #{productName} ,
-			cell_phone	= #{phone},
-			addr 				= #{addr} ,
-			email				=	#{email}
+	   		product_name 	= #{prodName} ,
+			prodDetail	= #{phone},
+			price 				= #{price} ,
+			manuDate				=	#{}
 	   	</set>
 	   	WHERE prodNo = #{productId}
 	 </update>
