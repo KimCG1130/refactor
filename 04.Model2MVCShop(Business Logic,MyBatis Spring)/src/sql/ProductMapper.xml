@@ -40,30 +40,30 @@
 	   	UPDATE product
 	   	<set>
 	   		product_name 	= #{prodName} ,
-			prodDetail	= #{phone},
+			prod_detail	= #{prodDetail},
 			price 				= #{price} ,
-			manuDate				=	#{}
+			manufacture_day				=	SYSDATE
 	   	</set>
-	   	WHERE prodNo = #{productId}
+	   	WHERE prod_no = #{prodNo}
 	 </update>
 		 
 	<!-- SQL : SELECT LIST -->
 	<select  id="getProductList"  parameterType="search"	resultMap="productSelectMap">
 	  	SELECT *
 	  	FROM (	SELECT inner_table.* , ROWNUM AS row_seq
-	  					FROM		(	SELECT prodNo , product_name , email
+	  					FROM		(	SELECT prod_no , product_name , reg_date
 											FROM products
 											<if test="searchCondition != null">
 												<where>
 													<if test="searchCondition == 0 and searchKeyword !='' ">
-										 				prodNo = #{searchKeyword}
+										 				prod_no = #{searchKeyword}
 													</if>
 													<if test="searchCondition == 1 and searchKeyword !='' ">
 										 				product_name = #{searchKeyword}
 													</if>
 												</where>
 											</if>
-											ORDER BY prodNo ) inner_table
+											ORDER BY prod_no ) inner_table
 						WHERE ROWNUM &lt;= #{endRowNum} )
 		WHERE row_seq BETWEEN #{startRowNum} AND #{endRowNum} 
 	 </select>
@@ -81,12 +81,12 @@
 	<!-- SQL : SELECT ROW Count -->	 
 	 <select  id="getTotalCount"  parameterType="search"	 resultType="int">
 	  	SELECT COUNT(*)
-	  	FROM(	SELECT prodNo , product_name , email
-						FROM products
+	  	FROM(	SELECT prod_no , product_name , reg_date
+						FROM product
 						<if test="searchCondition != null">
 							<where>
 								<if test="searchCondition == 0 and searchKeyword !='' ">
-						 			prodNo = #{searchKeyword}
+						 			prod_no = #{searchKeyword}
 								</if>
 								<if test="searchCondition == 1 and searchKeyword !='' ">
 						 		product_name = #{searchKeyword}

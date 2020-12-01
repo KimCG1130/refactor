@@ -10,7 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 
 /*
  * FileName : MyBatisTestApp11.java 
- *  :: Persistence Layer unit Test : MyBatis + DAO
+ *  :: Persistence Layer unit Test : annotation+13
   */
 public class ProductTest14 {
 	
@@ -26,20 +26,20 @@ public class ProductTest14 {
 		System.out.println("\n");
 		
 		//==> Test 侩 Product instance 积己  
-		Product product = new Product("product04","林根","product04",null,0);
+		Product product = new Product();
 		
 		//1. addProduct Test  
 		System.out.println(":: 1. addProduct(INSERT)  ? ");
 		System.out.println(":: "+ productDao.addProduct(product) );
 		System.out.println("\n");
 		
-		//2. getProduct Test :: 林根 inert 犬牢 
+		//2. getProduct Test :: 
 		System.out.println(":: 2. getProduct(SELECT)  ? ");
-		System.out.println(":: "+ productDao.getProduct(product.getProductId()) );
+		System.out.println(":: "+ productDao.getProduct(product.getProdNo()) );
 		System.out.println("\n");
 
-		//3. uadateProduct Test  :: 林根 ==> 柯崔 荐沥
-		product.setProductName("柯崔");
+		//3. uadateProduct Test  :: 
+		product.setProductName("");
 		System.out.println(":: 3. update(UPDATE)  ? ");
 		System.out.println(":: "+productDao.updateProduct(product) );
 		System.out.println("\n");

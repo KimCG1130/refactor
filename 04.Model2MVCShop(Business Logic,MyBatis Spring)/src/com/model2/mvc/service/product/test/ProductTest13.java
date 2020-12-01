@@ -10,7 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 
 /*
  * FileName : MyBatisTestApp11.java 
- *  :: Persistence Layer unit Test : MyBatis + DAO
+ *  :: Persistence Layer unit Test : service+persistence(spring+11)
   */
 public class ProductTest13 {
 	

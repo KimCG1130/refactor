@@ -34,7 +34,7 @@ public class UserServiceTest {
 	@Qualifier("userServiceImpl")
 	private UserService userService;
 
-	//@Test
+	@Test
 	public void testAddUser() throws Exception {//유저가입 테스트
 		
 		User user = new User();
@@ -51,7 +51,7 @@ public class UserServiceTest {
 		user = userService.getUser("testUserId");
 
 		//==> console 확인
-		//System.out.println(user);
+		System.out.println(user);
 		
 		//==> API 확인 단정 메서드로 테스트 케이스의 수행 결과를 판별합니다
 		Assert.assertEquals("testUserId", user.getUserId());
@@ -62,23 +62,23 @@ public class UserServiceTest {
 		Assert.assertEquals("test@test.com", user.getEmail());
 	}
 	
-	//@Test
+	@Test
 	public void testGetUser() throws Exception {//유저정보확인 테스트
 		
 		User user = new User();
 		//==> 필요하다면...
-//		user.setUserId("testUserId");
-//		user.setUserName("testUserName");
-//		user.setPassword("testPasswd");
-//		user.setSsn("1111112222222");
-//		user.setPhone("111-2222-3333");
-//		user.setAddr("경기도");
-//		user.setEmail("test@test.com");
+		user.setUserId("testUserId");
+		user.setUserName("testUserName");
+		user.setPassword("testPasswd");
+		user.setSsn("1111112222222");
+		user.setPhone("111-2222-3333");
+		user.setAddr("경기도");
+		user.setEmail("test@test.com");
 		
 		user = userService.getUser("testUserId");
 
 		//==> console 확인
-		//System.out.println(user);
+		System.out.println(user);
 		
 		//==> API 확인
 		Assert.assertEquals("testUserId", user.getUserId());
@@ -92,7 +92,7 @@ public class UserServiceTest {
 		Assert.assertNotNull(userService.getUser("user05"));
 	}
 	
-	//@Test
+	@Test
 	 public void testUpdateUser() throws Exception{//유저정보업데이트 테스트
 		 
 		User user = userService.getUser("testUserId");
@@ -114,7 +114,7 @@ public class UserServiceTest {
 		Assert.assertNotNull(user);
 		
 		//==> console 확인
-		//System.out.println(user);
+		System.out.println(user);
 			
 		//==> API 확인
 		Assert.assertEquals("change", user.getUserName());
@@ -123,24 +123,24 @@ public class UserServiceTest {
 		Assert.assertEquals("change@change.com", user.getEmail());
 	 }
 	 
-	//@Test
+	@Test
 	public void testCheckDuplication() throws Exception{//유저중복확인 테스트
 
 		//==> 필요하다면...
-//		User user = new User();
-//		user.setUserId("testUserId");
-//		user.setUserName("testUserName");
-//		user.setPassword("testPasswd");
-//		user.setSsn("1111112222222");
-//		user.setPhone("111-2222-3333");
-//		user.setAddr("경기도");
-//		user.setEmail("test@test.com");
-//		
-//		userService.addUser(user);
+		User user = new User();
+		user.setUserId("testUserId");
+		user.setUserName("testUserName");
+		user.setPassword("testPasswd");
+		user.setSsn("1111112222222");
+		user.setPhone("111-2222-3333");
+		user.setAddr("경기도");
+		user.setEmail("test@test.com");
+		
+		userService.addUser(user);
 		
 		//==> console 확인
-		//System.out.println(userService.checkDuplication("testUserId"));
-		//System.out.println(userService.checkDuplication("testUserId"+System.currentTimeMillis()) );
+		System.out.println(userService.checkDuplication("testUserId"));
+		System.out.println(userService.checkDuplication("testUserId"+System.currentTimeMillis()) );
 	 	
 		//==> API 확인
 		Assert.assertFalse( userService.checkDuplication("testUserId") );
@@ -149,7 +149,7 @@ public class UserServiceTest {
 	}
 	
 	 //==>  주석을 풀고 실행하면....
-	 //@Test
+	 @Test
 	 public void testGetUserListAll() throws Exception{
 		 
 	 	Search search = new Search();
@@ -161,7 +161,7 @@ public class UserServiceTest {
 	 	Assert.assertEquals(3, list.size());
 	 	
 		//==> console 확인
-	 	//System.out.println(list);
+	 	System.out.println(list);
 	 	
 	 	Integer totalCount = (Integer)map.get("totalCount");
 	 	System.out.println(totalCount);
@@ -178,7 +178,7 @@ public class UserServiceTest {
 	 	Assert.assertEquals(3, list.size());
 	 	
 	 	//==> console 확인
-	 	//System.out.println(list);
+	 	System.out.println(list);
 	 	
 	 	totalCount = (Integer)map.get("totalCount");
 	 	System.out.println(totalCount);
@@ -198,7 +198,7 @@ public class UserServiceTest {
 	 	Assert.assertEquals(1, list.size());
 	 	
 		//==> console 확인
-	 	//System.out.println(list);
+	 	System.out.println(list);
 	 	
 	 	Integer totalCount = (Integer)map.get("totalCount");
 	 	System.out.println(totalCount);
@@ -213,13 +213,13 @@ public class UserServiceTest {
 	 	Assert.assertEquals(0, list.size());
 	 	
 		//==> console 확인
-	 	//System.out.println(list);
+	 	System.out.println(list);
 	 	
 	 	totalCount = (Integer)map.get("totalCount");
 	 	System.out.println(totalCount);
 	 }
 	 
-	 //@Test
+	 @Test
 	 public void testGetUserListByUserName() throws Exception{
 		 
 	 	Search search = new Search();

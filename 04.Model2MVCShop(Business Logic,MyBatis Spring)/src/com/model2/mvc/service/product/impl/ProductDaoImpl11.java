@@ -1,19 +1,19 @@
-//mybatis+DAO형식으로
+//mybatis+DAO형식으로 수정해야함
 package com.model2.mvc.service.product.impl;
 
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Repository;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Qualifier;
+//import org.springframework.stereotype.Repository;
 
 import com.model2.mvc.common.Search;
 import com.model2.mvc.service.domain.Product;
 import com.model2.mvc.service.product.ProductDao;
 
 
-//==> 회원관리 DAO CRUD 구현
+//==> 상품관리 DAO CRUD 구현
 //@Repository("productDaoImpl")
 public class ProductDaoImpl11 implements ProductDao{
 	
