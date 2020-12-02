@@ -3,52 +3,77 @@ package com.model2.mvc.service.product.impl;
 
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.beans.factory.annotation.Qualifier;
-//import org.springframework.stereotype.Repository;
-
 import com.model2.mvc.common.Search;
 import com.model2.mvc.service.domain.Product;
 import com.model2.mvc.service.product.ProductDao;
 
+import org.apache.ibatis.session.SqlSession;
+
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Qualifier;
+//import org.springframework.stereotype.Repository;
 
 //==> 상품관리 DAO CRUD 구현
-//@Repository("productDaoImpl")
+
 public class ProductDaoImpl11 implements ProductDao{
 	
-	///Field
-	//@Autowired
-	//@Qualifier("sqlSessionTemplate")
 	private SqlSession sqlSession;
-	public void setSqlSession(SqlSession sqlSession) {
-		this.sqlSession = sqlSession;
-	}
 	
-	///Constructor
-	public ProductDaoImpl11() {
-		System.out.println(this.getClass());
-	}
+	  public void setSqlSession(SqlSession sqlSession) {
+		  System.out.println("::"+getClass()+".setSqlSession() call"); 
+		  this.sqlSession = sqlSession; 
+		  }
+		  
+		  public ProductDaoImpl11() {
+		  System.out.println("::"+getClass()+"default Constructor call"); }
+		  
+		   public void addProduct(Product product) throws Exception {
+			   sqlSession.insert("ProductMapper.addProduct", product);
+			  //return sqlSession.insert("ProductMapper10.addProduct",product); 
+			  }
+		  
+		  public Product getProduct(int prodNo) throws Exception {  
+			  return (Product)sqlSession.selectOne("ProductMapper10.getProduct",prodNo); 
+		  }
+		  
+		  public void updateProduct(Product product) throws Exception {  
+			  sqlSession.update("ProductMapper.updateProduct", product);
+			  }
+		  
+		 // @Override public int removeProduct(String prodNo) throws Exception { return
+		  //sqlSession.delete("ProductMapper10.removeProduct",prodNo); }
+		  
+		   public List<Product> getProductList(Search search) throws Exception { 
+			  return sqlSession.selectList("ProductMapper10.getProductList",search);
+		  }
 
-	///Method
-	public void addProduct(Product product) throws Exception {
-		sqlSession.insert("ProductMapper.addProduct", product);
-	}
-
-	public Product getProduct(int prodNo) throws Exception {
-		return sqlSession.selectOne("ProductMapper.getProduct", prodNo);
-	}
-	
-	public void updateProduct(Product product) throws Exception {
-		sqlSession.update("ProductMapper.updateProduct", product);
-	}
-
-	public List<Product> getProductList(Search search) throws Exception {
-		return sqlSession.selectList("ProductMapper.getProductList", search);
-	}
-
-	// 게시판 Page 처리를 위한 전체 Row(totalCount)  return
-	public int getTotalCount(Search search) throws Exception {
-		return sqlSession.selectOne("ProductMapper.getTotalCount", search);
-	}
+		
+		public int getTotalCount(Search search) throws Exception {
+			return sqlSession.selectOne("ProductMapper10.getTotalCount", search);
+		}
 }
+	
+
+			/*
+			 * public void setSqlSession(SqlSession sqlSession) { this.sqlSession =
+			 * sqlSession; }
+			 * 
+			 * ///Constructor public ProductDaoImpl11() {
+			 * System.out.println(this.getClass()); }
+			 * 
+			 * ///Method public void addProduct(Product product) throws Exception {
+			 * sqlSession.insert("ProductMapper.addProduct", product); }
+			 * 
+			 * public Product getProduct(int prodNo) throws Exception { return
+			 * sqlSession.selectOne("ProductMapper.getProduct", prodNo); }
+			 * 
+			 * public void updateProduct(Product product) throws Exception {
+			 * sqlSession.update("ProductMapper.updateProduct", product); }
+			 * 
+			 * public List<Product> getProductList(Search search) throws Exception { return
+			 * sqlSession.selectList("ProductMapper.getProductList", search); }
+			 * 
+			 * // 게시판 Page 처리를 위한 전체 Row(totalCount) return public int getTotalCount(Search
+			 * search) throws Exception { return
+			 * sqlSession.selectOne("ProductMapper.getTotalCount", search); } }
+			 */

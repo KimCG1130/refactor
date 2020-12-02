@@ -7,6 +7,8 @@
 <!--	mybatis-config.xml :: MyBatis Framework  MetaData -->
 <configuration>
 
+	<properties resource="sql/jdbc.properties"/>
+
 	<!-- 기타 설정정보 :: [MyBatis_Home]/mybatis-3.2.1.pdf 참조 -->
 	<settings>
 		<setting name="callSettersOnNulls" value="false"/><!-- default false 굳이 안해줘도 될것같기도 -->

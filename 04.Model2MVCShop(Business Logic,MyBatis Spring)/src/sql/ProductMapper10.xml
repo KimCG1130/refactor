@@ -51,11 +51,11 @@
 		WHERE prod_no =#{prodNo}
 		</update>
 	 	  
-  	<delete id="removeProduct"  parameterType="string">
+  	<!-- <delete id="removeProduct"  parameterType="string">
   		DELETE
   		FROM product
   		WHERE prod_no= #{value}
-  	</delete>
+  	</delete> -->
   	
   	
   	<sql id="select-products">
@@ -90,7 +90,7 @@
 			</when>
 			</choose>	
 			</where>
-			<include refid="orderby-productId-desc"/>
+			<include refid="orderby-prodNo-desc"/>
 	</select>
 
 </mapper>
