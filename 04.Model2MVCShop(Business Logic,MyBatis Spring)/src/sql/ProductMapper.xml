@@ -8,7 +8,7 @@
  	
  	
 	<resultMap id="productSelectMap" type="product">
-		<result property="prodNo" 			column="prod_no" 			jdbcType="INTEGER"/>
+		<result property="prodNo" 			column="prod_no" 			jdbcType="NUMERIC"/>
 		<result property="prodName"	column="prod_name" 		jdbcType="VARCHAR" />
 		<result property="prodDetail" 	column="prod_detail" 		jdbcType="VARCHAR" />
 		<result property="manuDate" 	column="manufacture_day" 					jdbcType="VARCHAR" />
@@ -23,8 +23,8 @@
 	<insert 	id="addProduct"		parameterType="product" >
 	 	INSERT
 		INTO product( prod_no , prod_name , prod_detail , manufacture_day , price, image_file, reg_date) 
-		VALUES	 (	seq_product_prod_no.nextval , #{prodName} , #{prodDetail} , #{manuDate} , 
-							#{price} , #{fileName}  , to_char(SYSDATE, 'YYYYMMDD') )
+		VALUES	 (	seq_product_prod_no.nextval , #{prodName} , #{prodDetail:VARCHAR} , #{manuDate:VARCHAR} , 
+							#{price:NUMERIC} , #{fileName:VARCHAR}  , to_char(SYSDATE, 'YYYYMMDD') )
 	 </insert>
 	 
 	 <!-- SQL : SELECT ONE -->
@@ -60,7 +60,7 @@
 	  	SELECT *
 	  	FROM (	SELECT inner_table.* , ROWNUM AS row_seq
 	  					FROM		(	SELECT prod_no , prod_name , reg_date
-											FROM products
+											FROM product
 											<if test="searchCondition != null">
 												<where>
 													<if test="searchCondition == 0 and searchKeyword !='' ">
@@ -75,6 +75,9 @@
 						WHERE ROWNUM &lt;= #{endRowNum} )
 		WHERE row_seq BETWEEN #{startRowNum} AND #{endRowNum} 
 	 </select>
+	 
+	 
+	 	
 	 	<!--  위 두번째 subQuery 의  
 	 			WHERE ROWNUM &lt;= #{endRowNum} ) 는
 	 			WHERE ROWNUM <= #{endRowNum} ) 의미이며..

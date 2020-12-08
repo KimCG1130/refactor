@@ -17,5 +17,7 @@ public interface ProductService {
 	public void updateProduct(Product product) throws Exception;//수정
 	
 	public void deleteProduct(int prodNo) throws Exception;//제거
+
+	public int getTotalCount(Search search) throws Exception ;
 	
 }

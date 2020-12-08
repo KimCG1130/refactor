@@ -7,8 +7,8 @@ import com.model2.mvc.service.domain.Product;
 import com.model2.mvc.service.product.ProductService;
 
 /*
- * FileName : MyBatisTestApp13.java
-  * :: Business Layer unit Test : Service + Persistence (Spring +mybatis + DAO)
+ * FileName : MyBatisTestApp14.java
+  * :: Business Layer unit Test : Service + Persistence (Spring +mybatis + DAO)+어노테이션기반
   */
 public class ProductTest14 {
 	
@@ -20,39 +20,39 @@ public class ProductTest14 {
 												new String[] {	"/config/commonservice14.xml" });
 		System.out.println("\n");
 
-		//==> Bean/IoC Container 로 부터 획득한 UserService 인스턴스 획득
+		//==> Bean/IoC Container 로 부터 획득한 ProductService 인스턴스 획득
 		ProductService productService = (ProductService)context.getBean("productServiceImpl");
 		
 		System.out.println("\n");
 		
-		//==> Test 용 User instance 생성  
-		Product product = new Product("곶감", "맛있겠다", "20-11-15", 2000, "a.jpg");
+		//==> Test 용 Product instance 생성  
+		Product product = new Product("Test", "테스트용", "98-01-01", 100, "qwer");
 				
-		//1. addUser Test  
+		//1. addProduct Test  
 		System.out.println(":: 1. addProduct(INSERT)  ? ");
-		productService.addProduct(product);
+		//productService.addProduct(product);
 		System.out.println("\n");
 //		
-//		//2. getUser Test :: 주몽 inert 확인 
+//		//2. getProduct Test :: =
 		System.out.println(":: 2. getProduct(SELECT)  ? ");
-		product.setProdNo(10137);
+		product.setProdNo(20000);
 		System.out.println(":: "+ productService.getProduct(product.getProdNo()));
 		System.out.println("\n");
-		//3. UserMapper10.uadateUser Test  :: users table age/grade/redDate 입력값 확인할것 : OK
+		//3. ProductMapper10.uadateProduct Test  :: users table age/grade/redDate 입력값 확인할것 : OK
 		
-//		product.setProdDetail("투썸이 존맛");
-		product.setProdNo(10138);
+//		product.setProdDetail("바꿔영");
+		product.setProdNo(20000);
 //		System.out.println(":: 3. update(UPDATE)  ? ");
 //		productDao.updateProduct(product);
 //		System.out.println("\n");
 //		
-////		4. UserMapper10.getUserList Test  :: Dynamic Query 확인 id=user04/name=온달 검색
-//		System.out.println(":: 4. getUser(SELECT)  ? ");
+////		4. ProductMapper10.getProductList Test  :: Dynamic Query 확인
+//		System.out.println(":: 4. getProduct(SELECT)  ? ");
 //		System.out.println(":: "+ productDao.findProduct(product.getProdNo()));
 //		System.out.println("\n");
 //		
-		//5. UserMapper10.removeUser Test
-//		System.out.println(":: 5. Use10.removeUser (DELETE)  ? ");
+		//5. ProductMapper10.removeProduct Test
+//		System.out.println(":: 5. Use10.removeProduct (DELETE)  ? ");
 //		productDao.deleteProduct(product.getProdNo());
 //		System.out.println("\n");
 //		System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////////");
@@ -61,10 +61,10 @@ public class ProductTest14 {
 		//==> Test 용 Search instance 생성 
 //		Search search = new Search();
 //		
-//		//1. UserMapper10.getUserList Test 
-//		System.out.println(":: 1. getUserList01(SELECT)  ? ");
+//		//1. ProductMapper10.getProductList Test 
+//		System.out.println(":: 1. getProductList01(SELECT)  ? ");
 //		
-//		//2. UserMapper10.getUserList Test 
+//		//2. ProductMapper10.getProductList Test 
 //	 	search.setCurrentPage(1);
 //	 	search.setPageSize(6);
 //	 	search.setSearchCondition("2");

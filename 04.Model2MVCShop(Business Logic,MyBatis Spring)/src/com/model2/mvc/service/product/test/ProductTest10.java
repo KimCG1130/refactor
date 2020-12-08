@@ -62,7 +62,7 @@ public class ProductTest10 {
 	 	search.setSearchCondition("2");
 	 	search.setSearchKeyword("0");
 
-	 	//SqlSessionFactoryBean.printList( sqlSession.selectList("ProductMapper.getProductList",search) );
+	 	SqlSessionFactoryBean.printList( sqlSession.selectList("ProductMapper.getProductList",search) );
 	 	System.out.println("µð¹ö±ë");
 		System.out.println(":: 2. getTotalCount  ? ");
 		int a = sqlSession.selectOne("ProductMapper.getTotalCount", search);

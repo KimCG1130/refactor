@@ -25,31 +25,31 @@ public class ProductDaoImpl11 implements ProductDao{
 		  }
 		  
 		  public ProductDaoImpl11() {
-		  System.out.println("::"+getClass()+"default Constructor call"); }
+		  System.out.println("::"+getClass()+"default Constructor call"); 
+		  }
 		  
 		   public void addProduct(Product product) throws Exception {
 			   sqlSession.insert("ProductMapper.addProduct", product);
-			  //return sqlSession.insert("ProductMapper10.addProduct",product); 
 			  }
 		  
 		  public Product getProduct(int prodNo) throws Exception {  
-			  return (Product)sqlSession.selectOne("ProductMapper10.getProduct",prodNo); 
+			  return (Product)sqlSession.selectOne("ProductMapper.getProduct",prodNo); 
 		  }
 		  
 		  public void updateProduct(Product product) throws Exception {  
 			  sqlSession.update("ProductMapper.updateProduct", product);
 			  }
 		  
-		  @Override public void deleteProduct(int prodNo) throws Exception { 
-		  sqlSession.delete("ProductMapper10.deleteProduct",prodNo); }
+		  public void deleteProduct(int prodNo) throws Exception { 
+		  sqlSession.delete("ProductMapper.deleteProduct",prodNo); }
 		  
 		   public List<Product> getProductList(Search search) throws Exception { 
-			  return sqlSession.selectList("ProductMapper10.getProductList",search);
+			  return sqlSession.selectList("ProductMapper.getProductList",search);
 		  }
 
 		
 		public int getTotalCount(Search search) throws Exception {
-			return sqlSession.selectOne("ProductMapper10.getTotalCount", search);
+			return sqlSession.selectOne("ProductMapper.getTotalCount", search);
 		}
 }
 	
