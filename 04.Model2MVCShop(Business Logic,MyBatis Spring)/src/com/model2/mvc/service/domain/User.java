@@ -27,7 +27,7 @@ public class User {
 	public User(){
 	}
 	
-	///Method 
+	///Method (get/set)
 	public String getUserId() {
 		return userId;
 	}

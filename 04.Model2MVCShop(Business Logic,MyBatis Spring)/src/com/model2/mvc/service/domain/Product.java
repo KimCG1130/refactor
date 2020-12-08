@@ -24,6 +24,16 @@ public class Product {
 	//public void setProTranCode(String proTranCode) {
 		//this.proTranCode = proTranCode;
 	//}
+	
+	//단위 테스트 그릇
+	public Product(String prodName, String prodDetail, String manuDate, int price, String fileName) {
+		super();
+		this.prodName = prodName;
+		this.prodDetail = prodDetail;
+		this.manuDate = manuDate;
+		this.price = price;
+		this.fileName = fileName;
+	}
 	public String getFileName() {
 		return fileName;
 	}

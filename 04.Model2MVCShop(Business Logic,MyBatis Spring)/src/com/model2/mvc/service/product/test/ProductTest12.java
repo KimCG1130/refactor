@@ -1,16 +1,14 @@
 package com.model2.mvc.service.product.test;
 
-import java.util.ArrayList;
-
-//import mybatis.service.domain.Search;
-import com.model2.mvc.service.domain.Product;
-import com.model2.mvc.service.product.impl.ProductDaoImpl11;
-
 import org.apache.ibatis.session.SqlSession;
 
+import com.model2.mvc.service.domain.Product;
+import com.model2.mvc.service.product.impl.ProductDaoImpl11;
+//import com.model2.mvc.service.product.impl.ProductServiceImpl11;
+
 /*
- * FileName : MyBatisTestApp11.java 
- *  :: Persistence Layer unit Test :service+persistence(11)
+ * FileName : MyBatisTestApp12.java
+  * :: Business Layer unit Test : Service + Persistence (MyBatis + DAO)
   */
 public class ProductTest12 {
 	
@@ -20,53 +18,66 @@ public class ProductTest12 {
 		//==> SqlSessionFactoryBean.getSqlSession()을 이용 SqlSession instance GET
 		SqlSession sqlSession = SqlSessionFactoryBean.getSqlSession();
 		
-		//==> ProductDaoImpl11 생성 및 sqlSession instance setter injection
-		ProductDaoImpl11 productDao = new ProductDaoImpl11();
-		productDao.setSqlSession(sqlSession);
-		System.out.println("\n");
+		//==> UserDaoImpl11 생성 및 sqlSession instance setter injection
+		//ProductDaoImpl productDao = new ProductDaoImpl();
+		//productDao.setSqlSession(sqlSession);
+		//System.out.println("\n");
 		
-		//==> Test 용 Product instance 생성  
-		Product product = new Product("product04","주몽","product04",null,0);
+		//==> MyBatisTestApp12 생성 및 userDao instance setter injection
+		//ProductServiceImpl productService = new ProductServiceImpl();
+		//productService.setProductDao(productDao);
+		//System.out.println("\n");
 		
-		//1. addProduct Test  
-		System.out.println(":: 1. addProduct(INSERT)  ? ");
-		System.out.println(":: "+ productDao.addProduct(product) );
-		System.out.println("\n");
+		//==> Test 용 User instance 생성  
+		Product product = new Product("곶감", "맛있겠다", "20-11-15", 2000, "a.jpg");
 		
-		//2. getProduct Test :: 주몽 inert 확인 
-		System.out.println(":: 2. getProduct(SELECT)  ? ");
-		System.out.println(":: "+ productDao.getProduct(product.getProductId()) );
-		System.out.println("\n");
-
-		//3. uadateProduct Test  :: 주몽 ==> 온달 수정
-		product.setProductName("온달");
-		System.out.println(":: 3. update(UPDATE)  ? ");
-		System.out.println(":: "+productDao.updateProduct(product) );
-		System.out.println("\n");
+		//1. addUser Test  
+		//System.out.println(":: 1. addProduct(INSERT)  ? ");
+		//productService.addProduct(product);
+		//System.out.println("\n");
+	
+		//2. getUser Test :: 주몽 inert 확인 
+		//System.out.println(":: 2. getProduct(SELECT)  ? ");
+		//product.setProdNo(10137);
+		//System.out.println(":: "+ productDao.findProduct(product.getProdNo()));
+		//System.out.println("\n");
+		//3. UserMapper10.uadateUser Test  :: users table age/grade/redDate 입력값 확인할것 : OK
+		//                                                    :: 주몽 ==> 온달 수정
+		//product.setProdDetail("투썸이 존맛");
+		//product.setProdNo(10138);
+		//System.out.println(":: 3. update(UPDATE)  ? ");
+		//productDao.updateProduct(product);
+		//System.out.println("\n");
+//		
+////		4. UserMapper10.getUserList Test  :: Dynamic Query 확인 id=user04/name=온달 검색
+//		System.out.println(":: 4. getUser(SELECT)  ? ");
+//		System.out.println(":: "+ productDao.findProduct(product.getProdNo()));
+//		System.out.println("\n");
+//		
+		//5. UserMapper10.removeUser Test
+//		System.out.println(":: 5. Use10.removeUser (DELETE)  ? ");
+//		productDao.deleteProduct(product.getProdNo());
+//		System.out.println("\n");
+//		System.out.println("/////////////////////////////////////////////////////////////////////////////////////////////////");
+//		System.out.println("\n");
 		
-		//4. getProductList Test ::
-		System.out.println(":: 4. getProductList(SELECT)  ? ");
-		Search search = new Search();
-		search.setSearchCondition("productId");
-		ArrayList<String> arrayList = new ArrayList<String>();
-		arrayList.add("product04");
-		search.setProductId( arrayList );
+		//==> Test 용 Search instance 생성 
+//		Search search = new Search();
+//		
+//		//1. UserMapper10.getUserList Test 
+//		System.out.println(":: 1. getUserList01(SELECT)  ? ");
+//		
+//		//2. UserMapper10.getUserList Test 
+//	 	search.setCurrentPage(1);
+//	 	search.setPageSize(6);
+//	 	search.setSearchCondition("2");
+//	 	search.setSearchKeyword("0");
+//	 	
+//	 	productService.getProductList(search);
+//		
+//		System.out.println(":: 2. getTotalCount  ? ");
+//		int a = productDao.getTotalCount(search);
+//		System.out.println(a);
 		
-		System.out.println(":: List<Product> 내용 : "+ productDao.getProductList(search) );
-		System.out.println("\n");
-		
-		//5. removeProduct Test
-		System.out.println(":: 5. removeProduct (DELETE)  ? ");
-		System.out.println(":: "+productDao.removeProduct(product.getProductId()) );
-		System.out.println("\n");
-		
-		//6. getProductList Test 
-		System.out.println(":: 6. getProductList(SELECT)  ? ");
-		System.out.println("List<Product> 내용 : "+ productDao.getProductList(search) );
-		System.out.println("\n");
-		
-		//END::SqlSession  close
-		System.out.println("::END::SqlSession 닫기..");
-		sqlSession.close();
 	}//end of main
 }//end of class

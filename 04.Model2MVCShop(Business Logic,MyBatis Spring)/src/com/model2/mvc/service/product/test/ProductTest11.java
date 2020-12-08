@@ -28,7 +28,7 @@ public class ProductTest11 {
 		System.out.println("\n");
 		
 		//==> Test 용 Product instance 생성  
-		Product product = new Product();
+		Product product = new Product("허수아비","돌아간다","98-01-01",500,"");
 		
 		//1. addProduct Test  
 		System.out.println(":: 1. addProduct(INSERT)  ? ");
@@ -41,7 +41,7 @@ public class ProductTest11 {
 		System.out.println("\n");
 
 		//3. uadateProduct Test  ::  수정
-		product.setProdName("");
+		//product.setProdName("");
 		System.out.println(":: 3. update(UPDATE)  ? ");
 		//System.out.println(":: "+productDao.updateProduct(product) );
 		System.out.println("\n");
@@ -49,7 +49,7 @@ public class ProductTest11 {
 		//4. getProductList Test ::
 		System.out.println(":: 4. getProductList(SELECT)  ? ");
 		Search search = new Search();
-		search.setSearchCondition("productId");
+		search.setSearchCondition("prodNo");
 		ArrayList<String> arrayList = new ArrayList<String>();
 		arrayList.add("product04");
 		//search.setProd( arrayList );

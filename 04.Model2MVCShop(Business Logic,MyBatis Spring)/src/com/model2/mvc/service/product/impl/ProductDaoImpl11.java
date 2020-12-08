@@ -40,8 +40,8 @@ public class ProductDaoImpl11 implements ProductDao{
 			  sqlSession.update("ProductMapper.updateProduct", product);
 			  }
 		  
-		 // @Override public int removeProduct(String prodNo) throws Exception { return
-		  //sqlSession.delete("ProductMapper10.removeProduct",prodNo); }
+		  @Override public void deleteProduct(int prodNo) throws Exception { 
+		  sqlSession.delete("ProductMapper10.deleteProduct",prodNo); }
 		  
 		   public List<Product> getProductList(Search search) throws Exception { 
 			  return sqlSession.selectList("ProductMapper10.getProductList",search);
